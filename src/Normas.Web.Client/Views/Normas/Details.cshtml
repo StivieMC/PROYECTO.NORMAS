@@ -1,0 +1,74 @@
+﻿@model Normas.Web.Client.Models.NormaVM
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+<font color="blue" face="Book antiqua,arial">
+    <h1>Catálogo de normas</h1>
+</font>
+
+<div class="container">
+    <div class="col-md-5">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Listado de normas / Consulta</li>
+        </ol>
+    </div>
+    <a asp-action="Index">listado de normas</a>
+    <hr />
+
+    <div>
+        @*<h4>NormasMV</h4>*@
+        <hr />
+        <dl class="row">
+            @*<dt class = "col-sm-2">
+                    @Html.DisplayNameFor(model => model.NormaID)
+                </dt>
+                <dd class = "col-sm-10">
+                    @Html.DisplayFor(model => model.NormaID)
+                </dd>*@
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Clave)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Clave)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.FechaPublicacion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.FechaPublicacion)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Activo)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Activo)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Requisito.Descripcion)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Requisito.Descripcion)
+            </dd>
+            <div class="form-group">
+                <label asp-for="Clave" class="control-label"></label>
+                <input asp-for="Clave" class="form-control" />
+                <span asp-validation-for="Clave" class="text-danger"></span>
+            </div>
+        </dl>
+    </div>
+    <div>
+        @Html.ActionLink("Editar", "Edit", new { id = Model.NormaID }, new { @class = "btn btn-primary" }) |
+
+
+        @Html.ActionLink("Eliminar", "Delete", new { id = Model.NormaID }, new { @class = "btn btn-danger" }) |
+        <a asp-action="Index">Regresar al catálogo</a>
+
+    </div>
+ </div>
