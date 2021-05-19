@@ -3,50 +3,117 @@
 @{
     ViewData["Title"] = "Delete";
 }
-<font color="Red" face="Book antiqua,arial">
-    <h1>Eliminar</h1>
-</font>
-    <h3>Esta seguro que desea eliminar esta norma?</h3>
-    <div>
-        <h4>-------------------------------------------------------</h4>
-        <hr />
+<font color="blue" face="Book antiqua,arial">
+        <h1>Catálogo de normas</h1>
+ </font>
+
+<div class="container">
+
+    @*<div class="col-md-5">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Listado de normas / Consulta / Eliminar</li>
+            </ol>
+        </div>*@
+
+    @*<div class="card">
+        <div class="card-header">
+            <div class="row">*@
+                <div class="col-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+                        <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Normas">Listado de normas</a></li>
+                        <li class="breadcrumb-item"><a asp-action="Details" asp-controller="Normas" asp-route-id="@Model.NormaID">Consulta</a></li>
+                        <li class="breadcrumb-item">Eliminar</li>
+                    </ol>
+                </div>
+            @*</div>
+        </div>
+    </div>*@
+
+   <p>
+         <a asp-action="Index" class="btn btn-primary">Listado de Normas</a>
+         @*<a asp-action="Index">listado de normas</a>*@
+   </p>
+    
+    <h5>Eliminar</h5>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Clave)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.TextBoxFor(model => model.Clave, new { @class = "col-sm-8 form-control", disabled = "disabled" })
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.TextBoxFor(model => model.Descripcion, new { @class = "col-sm-8 form-control", disabled = "disabled" })
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaPublicacion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.TextBoxFor(model => model.FechaPublicacion, new { @class = "col-sm-8 form-control", disabled = "disabled" })
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Activo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.TextBox("Activo", @Model.Activo.ToString(), new { @class = "col-sm-8 form-control", disabled = "disabled" })
+
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Requisito.Descripcion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.TextBoxFor(model => model.Requisito.Descripcion, new { @class = "col-sm-8 form-control", disabled = "disabled" })
+        </dd>
+    </dl>
+    <!-- Inicia boton  modal -->
+    <!-- Button to Open the Modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+        Eliminar
+    </button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    <!-- The Modal -->
+    <div class="modal" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">¿Está seguro de eliminar el registro?</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Esta acción será permanente...
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+
+                    <form asp-action="Delete">
+                        <input type="submit" value="¡Sí, eliminalo!" class="btn btn-danger" /> |
+                        @*<a asp-action="Index">Back to List</a>*@
+                        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                    </form>
+
+                </div>
+
+            </div>
 
 
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Clave)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Clave)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Descripcion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Descripcion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.FechaPublicacion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.FechaPublicacion)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Activo)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Activo)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Requisito.Descripcion)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.Requisito.Descripcion)
-            </dd>
-        </dl>
 
-        <form asp-action="Delete">
-            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-            <a asp-action="Index">Regresar al catálogo</a>
-        </form>
+
+            @*<form asp-action="Delete">
+                    <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+                    <a asp-action="Index">Regresar al catálogo</a>
+                </form>*@
+
+        </div>
     </div>
+
+</div>            <!-- termina boton  modal -->
+ </div>  <!-- Div FINAL -->

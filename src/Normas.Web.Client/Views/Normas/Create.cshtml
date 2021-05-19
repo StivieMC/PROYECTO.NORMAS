@@ -9,12 +9,28 @@
     
 
 <div class="container">
-    <div class="col-md-5">
+    <!--<div class="col-md-5">
         <ol class="breadcrumb">
             <li class="breadcrumb-item active">Listado de normas / Nueva</li>
         </ol>
+    </div>-->
+    @*<a asp-action="Index">listado de normas</a>*@
+    <!--<a asp-action="Index" class="btn btn-primary">Listado de Normas</a>-->
+
+    <div class="col-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Normas">Listado de normas</a></li>
+            <li class="breadcrumb-item">Nueva</li>
+        </ol>
     </div>
-    <a asp-action="Index">listado de normas</a>
+
+    <p>
+        <a asp-action="Index" class="btn btn-primary">Listado de Normas</a>
+
+    </p>
+
+    <h5>Nueva</h5>
     <hr />
     <div class="row">
         <div class="col-md-4">
@@ -22,40 +38,45 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
                 <div class="form-group">
-                    <label asp-for="Clave" class="control-label"></label>
-                    <input asp-for="Clave" class="form-control" />
+                    <label asp-for="Clave" class="control-label"></label><span class="text-danger">*</span>
+                    <input asp-for="Clave" class="form-control" required />
                     <span asp-validation-for="Clave" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Descripcion" class="control-label"></label>
-                    <input asp-for="Descripcion" class="form-control" />
+                    <label asp-for="Descripcion" class="control-label"></label><span class="text-danger">*</span>
+                    <input asp-for="Descripcion" class="form-control" required />
                     <span asp-validation-for="Descripcion" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="FechaPublicacion" class="control-label"></label>
-                    <input asp-for="FechaPublicacion" class="form-control" />
+                    <label asp-for="FechaPublicacion" class="control-label"></label><span class="text-danger">*</span>
+                    <input asp-for="FechaPublicacion" class="form-control" required />
                     <span asp-validation-for="FechaPublicacion" class="text-danger"></span>
                 </div>
                 <div class="form-group form-check">
                     <label class="form-check-label">
-                        <input class="form-check-input" asp-for="Activo" /> @Html.DisplayNameFor(model => model.Activo)
+
+                        <input class="form-check-input" asp-for="Activo" />
+                        <label asp-for="Activo" class="control-label"></label><span class="text-danger">*</span>
+                        @*@Html.DisplayNameFor(model => model.Activo)*@
+
                     </label>
                 </div>
-
                 <div class="form-group">
-                    <label asp-for="Requisito" class="control-label"></label>
+                    <label asp-for="Requisito" class="control-label"></label><span class="text-danger">*</span>
                     <select asp-for="TipoRequisitoId" class="form-control" asp-items="ViewBag.TipoRequisitoId">
                         <option value="">-- Selecciona Tipo Requisito --</option>
                     </select>
                     <span asp-validation-for="TipoRequisitoId" class="text-danger" />
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Guardar" class="btn btn-primary" /> | <a asp-action="Index">Cancelar</a>
+                    <input type="submit" value="Guardar" class="btn btn-primary" /> |
+                    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                    @*<a asp-action="Index">Cancelar</a>*@
                 </div>
             </form>
         </div>
     </div>
-        
+
 </div>
 
     @section Scripts {

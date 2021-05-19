@@ -9,14 +9,28 @@
     @*<h4>NormaMV</h4>*@
  
 <div class="container">
-    <div class="col-md-4">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item active">Listado de normas / Consulta / Actualizacion</li>
+    @*<div class="col-md-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item active">Listado de normas / Consulta / Edicion</li>
 
+            </ol>
+        </div>
+        <a asp-action="Index" class="btn btn-primary">Listado de Normas</a>*@
+
+    <div class="col-12">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Home">Home</a></li>
+            <li class="breadcrumb-item"><a asp-action="Index" asp-controller="Normas">Listado de normas</a></li>
+            <li class="breadcrumb-item"><a asp-action="Details" asp-controller="Normas" asp-route-id="@Model.NormaID">Consulta</a></li>
+            <li class="breadcrumb-item">Actualizar</li>
         </ol>
     </div>
 
-    
+    <p>
+        <a asp-action="Index" class="btn btn-primary">Listado de Normas</a>
+
+    </p>
+    <h5>Actualizar</h5>
     <hr />
 
     <div class="row">
@@ -56,12 +70,18 @@
                     </select>
                     <span asp-validation-for="TipoRequisitoId" class="text-danger" />
                 </div>
+
                 <div class="form-group">
                     <input type="submit" value="Guardar" class="btn btn-primary" /> |
-                    <a asp-action="Index">Cancelar</a>
+                    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+                    @*<a asp-action="Index">Cancelar</a>*@
                 </div>
             </form>
         </div>
+
+        @* ------------------------comienza otro formulario----------------------------*@
+
+
     </div>
 
 </div>
